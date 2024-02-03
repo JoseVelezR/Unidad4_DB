@@ -1,0 +1,25 @@
+CREATE DATABASE clientescoptotect;
+
+ USE clientescoprotect
+
+CREATE TABLE equipos (
+  ID INT PRIMARY KEY,
+  marca  VARCHAR(20),
+  usuario VARCHAR(20),
+  color INT
+);
+CREATE TABLE usuario (
+  ID INT PRIMARY KEY,
+  num_tel VARCHAR(10),
+  equipo VARCHAR(20),
+  num_equipos INT,
+  rol INT
+);
+CREATE TABLE reparacion (
+  ID INT PRIMARY KEY,
+  estado INT,
+  id_equipo INT,
+  id_usuario INT,
+  CONSTRAINT fk_equipos_reparacion FOREIGN KEY (id_equipo) REFERENCES equipos (ID),
+  CONSTRAINT fk_usuario_reparacion FOREIGN KEY (id_usuario) REFERENCES usuario (ID)
+)
